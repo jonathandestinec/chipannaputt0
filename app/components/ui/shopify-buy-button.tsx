@@ -26,20 +26,26 @@ const ShopifyBuyButton: React.FC<ShopifyBuyButtonProps> = ({ productId }) => {
                     "product": {
                         "styles": {
                             "button": {
-                                ":hover": { "background-color": "#000000" },
+                                ":hover": { "background-color": "#1f2937" },
                                 "background-color": "#000000",
-                                ":focus": { "background-color": "#000000" }
+                                ":focus": { "background-color": "#1f2937" },
+                                "padding": "12px 24px",
+                                "font-size": "16px",
+                                "font-weight": "500",
+                                "border-radius": "6px",
+                                "border": "none"
                             }
                         },
                         "width": "100%",
-                        "text": { "button": "Add to cart" }
+                        "text": { "button": "Add to Cart" },
+                        "googleShoppingAd": false
                     },
                     "cart": {
                         "styles": {
                             "button": {
-                                ":hover": { "background-color": "#000000" },
+                                ":hover": { "background-color": "#1f2937" },
                                 "background-color": "#000000",
-                                ":focus": { "background-color": "#000000" }
+                                ":focus": { "background-color": "#1f2937" }
                             }
                         }
                     }
@@ -57,7 +63,7 @@ const ShopifyBuyButton: React.FC<ShopifyBuyButtonProps> = ({ productId }) => {
         }
     }, [productId, ui, isLoaded])
 
-    return <div ref={containerRef} id={`product-component-${productId}`} className="w-full min-h-[50px] flex items-center justify-center" />
+    return <div ref={containerRef} id={`product-component-${productId}`} className="w-full min-h-[200px] flex items-center justify-center" />
 }
 
 export default ShopifyBuyButton

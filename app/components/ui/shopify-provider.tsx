@@ -1,6 +1,7 @@
 "use client"
 
 import React, { createContext, useContext, useEffect, useRef, useState } from 'react'
+import { ShoppingCart } from 'lucide-react'
 
 interface ShopifyContextType {
     client: any
@@ -72,13 +73,17 @@ export const ShopifyProvider = ({ children }: { children: React.ReactNode }) => 
                             "styles": {
                                 "toggle": {
                                     "background-color": "transparent",
-                                    "color": "#000000",
-                                    ":hover": { "background-color": "transparent" },
-                                    ":focus": { "background-color": "transparent" }
+                                    "color": "#374151",
+                                    ":hover": { "background-color": "#f3f4f6" },
+                                    ":focus": { "background-color": "#f3f4f6" },
+                                    "border-radius": "0.5rem",
+                                    "padding": "0.5rem"
                                 },
                                 "count": {
                                     "background-color": "#000000",
-                                    "color": "#ffffff"
+                                    "color": "#ffffff",
+                                    "font-size": "0.75rem",
+                                    "border-radius": "9999px"
                                 }
                             }
                         }

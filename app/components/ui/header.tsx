@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { Menu, X, Search } from 'lucide-react';
+import { Menu, X, ShoppingCart } from 'lucide-react';
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -88,11 +88,11 @@ const Header = () => {
                 }}
                 className='w-full p-4 sm:p-4 md:p-5 px-9 sm:px-8 md:px-12 lg:px-16 bg-white fixed left-0 right-0 z-50 shadow-sm'>
 
-                {/* Mobile Layout: Menu | Logo | Icons */}
+                {/* Mobile Layout: Menu | Logo | Cart */}
                 <div className='lg:hidden flex items-center justify-between w-full'>
                     <button
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        className='p-2 hover:bg-gray-100 rounded-full transition-colors flex items-center justify-center'
+                        className='p-2 hover:bg-gray-100 rounded-lg transition-colors flex items-center justify-center text-gray-700'
                         aria-label="Toggle menu"
                     >
                         {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -100,38 +100,30 @@ const Header = () => {
 
                     {/* Center: Logo */}
                     <Link href="/" className='absolute left-1/2 -translate-x-1/2 flex items-center justify-center'>
-                        <Image src="/logo.png" alt="Logo" width={180} height={180} className='md:w-20 w-36 h-auto' />
+                        <Image src="/logo.png" alt="Chip Anna Putt Logo" width={180} height={180} className='w-32 h-auto' />
                     </Link>
 
-                    {/* Right: Search & Cart Icons */}
-                    <div className='flex items-center gap-2 sm:gap-4'>
-                        {/* Search icon */}
-                        <button className='p-2 hover:bg-gray-100 rounded-full transition-colors flex items-center justify-center' aria-label="Search">
-                            <Search size={22} strokeWidth={1.5} />
-                        </button>
-
-                        {/* Shopify Cart Toggle */}
-                        <div id="shopify-cart-toggle-mobile" className="w-10 h-10 flex items-center justify-center" />
-                    </div>
+                    {/* Right: Cart Icon */}
+                    <div id="shopify-cart-toggle-mobile" className="p-2 hover:bg-gray-100 rounded-lg transition-colors flex items-center justify-center text-gray-700" />
                 </div>
 
-                {/* Desktop Layout: Logo + Links | Icons */}
+                {/* Desktop Layout: Logo + Links | Cart */}
                 <div className='hidden lg:flex items-center justify-between w-full'>
                     {/* Logo + Desktop Links */}
-                    <div className='flex items-center gap-8'>
+                    <div className='flex items-center gap-12'>
                         {/* Logo */}
-                        <Link href="/" className='flex items-center justify-center'>
-                            <Image src="/logo.png" alt="Logo" width={180} height={180} className='w-32 lg:w-40 h-auto' />
+                        <Link href="/" className='flex items-center justify-center flex-shrink-0'>
+                            <Image src="/logo.png" alt="Chip Anna Putt Logo" width={180} height={180} className='w-36 h-auto' />
                         </Link>
 
                         {/* Desktop Links */}
-                        <nav className='flex items-center text-gray-600 font-medium text-base lg:text-lg'>
-                            <ul className='flex items-center gap-6 lg:gap-10'>
+                        <nav className='flex items-center text-gray-600 font-medium'>
+                            <ul className='flex items-center gap-10'>
                                 {navLinks.map((link) => (
                                     <li key={link.name}>
                                         <Link
                                             href={link.href}
-                                            className={`hover:text-black transition-colors ${currentUrl === link.href ? "text-black font-semibold border-b-2 border-black" : ""}`}
+                                            className={`text-base transition-colors ${currentUrl === link.href ? "text-black font-semibold border-b-2 border-black pb-1" : "hover:text-black"}`}
                                         >
                                             {link.name}
                                         </Link>
@@ -141,16 +133,8 @@ const Header = () => {
                         </nav>
                     </div>
 
-                    {/* Desktop Icons */}
-                    <div className='flex items-center gap-3 text-black'>
-                        {/* Search icon */}
-                        <button className='p-2 hover:bg-gray-100 rounded-full transition-colors flex items-center justify-center' aria-label="Search">
-                            <Search size={24} strokeWidth={1.5} />
-                        </button>
-
-                        {/* Shopify Cart Toggle */}
-                        <div id="shopify-cart-toggle-desktop" className='w-11 h-11 flex items-center justify-center' />
-                    </div>
+                    {/* Desktop Cart Icon */}
+                    <div id="shopify-cart-toggle-desktop" className='p-2 hover:bg-gray-100 rounded-lg transition-colors flex items-center justify-center text-gray-700 flex-shrink-0' />
                 </div>
 
             </header>
@@ -208,13 +192,8 @@ const Header = () => {
                                 <div className="my-6 border-t border-gray-200" />
 
                                 {/* Additional Mobile Menu Items */}
-                                <div className="space-y-1">
-                                    <button className="w-full flex items-center gap-4 py-3 px-4 text-lg font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 rounded-lg transition-colors">
-                                        <Search size={20} strokeWidth={1.5} />
-                                        <span>Search</span>
-                                    </button>
-
-                                    <div id="shopify-cart-toggle-menu" className="w-full" />
+                                <div className="space-y-2">
+                                    <div id="shopify-cart-toggle-menu" className="w-full py-3 px-4" />
 
                                     <a href="https://nq5qk0-y0.myshopify.com/account" className="w-full flex items-center gap-3 py-3 px-4 text-lg font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 rounded-lg transition-colors">
                                         <span>Account</span>
