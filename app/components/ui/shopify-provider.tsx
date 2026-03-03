@@ -44,83 +44,35 @@ export const ShopifyProvider = ({ children }: { children: React.ReactNode }) => 
             window.ShopifyBuy.UI.onReady(clientRef.current).then((ui: any) => {
                 uiRef.current = ui
 
-                // 1. Create the global cart FIRST and disable the default toggle
-                ui.createComponent('cart', {
-                    options: {
-                        "cart": {
-                            "styles": {
-                                "button": {
-                                    ":hover": { "background-color": "#000000" },
-                                    "background-color": "#000000",
-                                    ":focus": { "background-color": "#000000" }
-                                }
-                            }
-                        },
-                        "toggle": {
-                            "styles": {
-                                "toggle": {
-                                    "display": "none" // Hide the floating green button
-                                }
-                            }
-                        }
-                    }
-                })
+                // Create cart component in a hidden container
+                const cartContainer = document.createElement('div')
+                cartContainer.id = 'shopify-cart-container'
+                cartContainer.style.display = 'none'
+                document.body.appendChild(cartContainer)
 
-                // 2. Setup options for our custom toggles in the header
-                const toggleOptions = {
-                    options: {
-                        "toggle": {
-                            "styles": {
-                                "toggle": {
-                                    "background-color": "transparent",
-                                    "color": "#374151",
-                                    ":hover": { "background-color": "#f3f4f6" },
-                                    ":focus": { "background-color": "#f3f4f6" },
-                                    "border-radius": "0.5rem",
-                                    "padding": "0.5rem"
-                                },
-                                "count": {
-                                    "background-color": "#000000",
-                                    "color": "#ffffff",
-                                    "font-size": "0.75rem",
-                                    "border-radius": "9999px"
+                try {
+                    ui.createComponent('cart', {
+                        node: cartContainer,
+                        options: {
+                            "cart": {
+                                "styles": {
+                                    "button": {
+                                        ":hover": { "background-color": "#1f2937" },
+                                        "background-color": "#000000",
+                                        ":focus": { "background-color": "#1f2937" }
+                                    }
                                 }
                             }
                         }
-                    }
+                    })
+                } catch (err) {
+                    console.warn("Cart component creation skipped, will use direct toggle", err)
                 }
 
-                // Helper to safely create components only if their node exists and is empty
-                const createIfNodeExists = (nodeId: string) => {
-                    const node = document.getElementById(nodeId)
-                    if (node && node.innerHTML === "") {
-                        ui.createComponent('toggle', {
-                            node,
-                            ...toggleOptions,
-                        })
-                        return true
-                    }
-                    return false
-                }
-
-                // Retry mechanism to ensure nodes are found after Next.js hydration
-                let attempts = 0
-                const mountToggles = () => {
-                    const d = createIfNodeExists('shopify-cart-toggle-desktop')
-                    const m = createIfNodeExists('shopify-cart-toggle-mobile')
-                    const menu = createIfNodeExists('shopify-cart-toggle-menu')
-
-                    if (!(d && m && menu) && attempts < 10) {
-                        attempts++
-                        setTimeout(mountToggles, 200)
-                    } else {
-                        setIsLoaded(true)
-                    }
-                }
-
-                mountToggles()
+                setIsLoaded(true)
             }).catch((err: any) => {
                 console.error("Shopify Buy SDK initialization failed:", err)
+                setIsLoaded(true)
             })
         }
 

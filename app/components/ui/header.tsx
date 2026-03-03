@@ -2,10 +2,11 @@
 
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { Menu, X, ShoppingCart } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import { CartButton } from './cart-button';
 
 const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -104,7 +105,7 @@ const Header = () => {
                     </Link>
 
                     {/* Right: Cart Icon */}
-                    <div id="shopify-cart-toggle-mobile" className="p-2 hover:bg-gray-100 rounded-lg transition-colors flex items-center justify-center text-gray-700" />
+                    <CartButton />
                 </div>
 
                 {/* Desktop Layout: Logo + Links | Cart */}
@@ -134,7 +135,7 @@ const Header = () => {
                     </div>
 
                     {/* Desktop Cart Icon */}
-                    <div id="shopify-cart-toggle-desktop" className='p-2 hover:bg-gray-100 rounded-lg transition-colors flex items-center justify-center text-gray-700 flex-shrink-0' />
+                    <CartButton />
                 </div>
 
             </header>
@@ -193,8 +194,6 @@ const Header = () => {
 
                                 {/* Additional Mobile Menu Items */}
                                 <div className="space-y-2">
-                                    <div id="shopify-cart-toggle-menu" className="w-full py-3 px-4" />
-
                                     <a href="https://nq5qk0-y0.myshopify.com/account" className="w-full flex items-center gap-3 py-3 px-4 text-lg font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 rounded-lg transition-colors">
                                         <span>Account</span>
                                     </a>
