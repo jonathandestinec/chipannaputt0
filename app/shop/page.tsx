@@ -6,7 +6,7 @@ import { Product as ProductType } from '@/store/cart-store'
 const sampleProduct: ProductType = {
     id: 'chip-anna-putt-kit',
     name: 'Chip Anna Putt Kit',
-    price: 94.99,
+    price: 111.49,
     image: '/images/product1.png', // Replace with actual image
     description: 'Master your short game with the ultimate training kit. Includes premium putting mat, alignment tools, and expert video tutorials.'
 }

@@ -127,9 +127,9 @@ export default function CartModal() {
                     <span>$79.99</span>
                   </div>
                   <div className="flex items-center justify-between text-sm text-gray-600">
-                    <span>Shipping</span>
+                    <span>Shipping & Tax </span>
                     <span className="flex items-center gap-1 text-green-600 font-semibold">
-                      ✨ $11
+                      ✨ $11 + $5.50 = $16.50
                     </span>
                   </div>
                   <div className="h-px bg-gray-200 my-2" />
