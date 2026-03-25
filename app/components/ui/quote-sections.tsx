@@ -8,8 +8,8 @@ const QuoteSections = () => {
                 {/* responsive image left, left-centered text right */}
                 <div className='w-full h-max flex items-center justify-center'>
                     <div className='w-full h-full grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-8 md:gap-0'>
-                        <div className='w-full h-[50vh] md:h-screen flex items-center justify-center p-4 md:p-0'>
-                            <Image src="/images/whatyouget.png" alt="Store" width={500} height={400} className='w-full h-full object-contain md:object-cover' />
+                        <div className='w-full h-max md:h-max flex items-center justify-center p-4 md:p-0'>
+                            <Image src="/images/wyg.png" alt="Store" width={500} height={400} className='w-full h-full object-contain md:object-cover' />
                         </div>
 
                         <div className='w-full h-full flex items-center justify-center p-6 sm:p-8 md:p-12 lg:p-16'>
@@ -54,8 +54,8 @@ const QuoteSections = () => {
 
                         </div>
 
-                        <div className='w-full h-full flex items-center justify-center order-1 md:order-2 p-4 md:p-0'>
-                            <Image src="/images/howitworks.png" alt="Store" width={500} height={400} className='w-full h-auto object-contain' />
+                        <div className='w-full h-max flex items-center justify-center order-1 md:order-2 p-4 md:p-0'>
+                            <Image src="/images/hiw.png" alt="Store" width={500} height={400} className='w-full h-auto object-contain' />
                         </div>
                     </div>
                 </div>

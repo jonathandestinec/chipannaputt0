@@ -47,7 +47,7 @@ const page = () => {
       </section>
 
 
-      <Welcome />
+      {/* <Welcome /> */}
 
       <Chipping />
       <Putting />

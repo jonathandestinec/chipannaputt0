@@ -113,7 +113,7 @@ const Header = () => {
 
                     {/* Center: Logo */}
                     <Link href="/" className='flex items-center justify-center'>
-                        <Image src="/logo.png" alt="Logo" width={180} height={180} className='md:w-20 w-36 h-auto' />
+                        <Image src="/logo2.png" alt="Logo" width={180} height={180} className='md:w-20 w-36 h-auto brightness-125' />
                     </Link>
 
                     {/* Right: Actions & Cart Icon */}
@@ -180,7 +180,7 @@ const Header = () => {
                     <div className='flex items-center gap-8'>
                         {/* Logo */}
                         <Link href="/" className='flex items-center justify-center'>
-                            <Image src="/logo.png" alt="Logo" width={180} height={180} className='w-32 lg:w-40 h-auto' />
+                            <Image src="/logo2.png" alt="Logo" width={180} height={180} className='w-32 lg:w-40 h-auto brightness-125' />
                         </Link>
 
                         {/* Desktop Links */}
